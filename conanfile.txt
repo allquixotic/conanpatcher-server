@@ -1,0 +1,10 @@
+[requires]
+wt/4.0.3@bincrafters/stable
+
+[generators]
+cmake
+
+[options]
+wt:shared=False
+wt:connector_isapi=False
+wt:with_test=False

@@ -1,0 +1,20 @@
+#!/bin/bash
+mkdir -p wbuild
+pushd wbuild >& /dev/null
+export CXX=/usr/bin/x86_64-w64-mingw32-g++-posix
+export CC=/usr/bin/x86_64-w64-mingw32-gcc-posix
+export CHOST=x86_64-w64-mingw32
+export AR=${CHOST}-ar
+export AS=${CHOST}-as
+export RANLIB=${CHOST}-ranlib
+export STRIP=${CHOST}-strip
+export RC=${CHOST}-windres
+
+cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release \
+ -DCMAKE_FIND_ROOT_PATH=/usr/x86_64-w64-mingw32 \
+ -DCMAKE_SYSTEM_NAME=Windows \
+ -DDLLTOOL="$(which x86_64-w64-mingw32-dlltool)" \
+ -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY
+
+cmake --build .
+popd >& /dev/null

@@ -1,0 +1,5 @@
+#!/bin/bash
+mkdir -p mbuildd
+pushd mbuildd >& /dev/null
+conan install --build missing --profile default ..
+popd >& /dev/null

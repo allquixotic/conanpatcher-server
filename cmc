@@ -1,0 +1,5 @@
+#!/bin/bash
+mkdir -p wbuild
+pushd wbuild >& /dev/null
+conan install --build missing --profile ../l2w.profile ..
+popd >& /dev/null

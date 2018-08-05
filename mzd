@@ -1,0 +1,8 @@
+#!/bin/bash
+mkdir -p mbuildd
+pushd mbuildd >& /dev/null
+#export CXX=/usr/bin/clang++-libc++
+#export CC=/usr/bin/clang
+cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug
+cmake --build .
+popd >& /dev/null
